@@ -1,5 +1,3 @@
-gem "jekyll-remote-theme"
-
 # The AI Museum
 
 A living digital art space: an AI curator, an ever-changing gallery, a retro
