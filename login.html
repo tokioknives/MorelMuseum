@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enter the Museum</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .auth-wrap {
+      max-width: 380px;
+      margin: 90px auto;
+      padding: 0 24px;
+    }
+    .auth-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 24px;
+      border: 1px solid var(--panel);
+    }
+    .auth-tabs button {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--dim);
+      font-family: "Courier New", monospace;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .auth-tabs button.active {
+      background: var(--panel);
+      color: var(--text);
+    }
+    .auth-form input {
+      width: 100%;
+      background: var(--panel);
+      border: 1px solid var(--panel);
+      color: var(--text);
+      padding: 12px;
+      margin-bottom: 14px;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+    .auth-form input:focus {
+      outline: 1px solid var(--cyan);
+    }
+    .auth-form button.submit {
+      width: 100%;
+      padding: 12px;
+      background: var(--magenta);
+      border: none;
+      color: var(--bg);
+      font-family: "Courier New", monospace;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .auth-message {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: var(--dim);
+      min-height: 20px;
+    }
+    .auth-message.error { color: var(--magenta); }
+    .auth-message.success { color: var(--cyan); }
+    .hidden { display: none; }
+    #member-panel {
+      max-width: 380px;
+      margin: 90px auto;
+      padding: 0 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scanlines"></div>
+
+  <header class="topbar">
+    <a href="index.html" class="brand" style="text-decoration:none;">AI_MUSEUM</a>
+  </header>
+
+  <main>
+    <div id="auth-wrap" class="auth-wrap">
+      <p class="kicker">&gt; access</p>
+      <h2 style="margin-top:6px;">Enter the museum</h2>
+
+      <div class="auth-tabs">
+        <button id="tab-login" class="active">Log in</button>
+        <button id="tab-signup">Sign up</button>
+      </div>
+
+      <form id="login-form" class="auth-form">
+        <input type="email" id="login-email" placeholder="email" required />
+        <input type="password" id="login-password" placeholder="password" required />
+        <button type="submit" class="submit">Log in</button>
+      </form>
+
+      <form id="signup-form" class="auth-form hidden">
+        <input type="email" id="signup-email" placeholder="email" required />
+        <input type="password" id="signup-password" placeholder="password (6+ characters)" required />
+        <button type="submit" class="submit">Create account</button>
+      </form>
+
+      <p id="auth-message" class="auth-message"></p>
+    </div>
+
+    <div id="member-panel" class="hidden">
+      <p class="kicker">&gt; access: granted</p>
+      <h2 style="margin-top:6px;">Welcome in.</h2>
+      <p id="member-email" style="color:var(--dim);"></p>
+      <button id="logout-btn" class="btn" style="cursor:pointer; margin-top:20px;">Log out</button>
+    </div>
+  </main>
+
+  <footer>
+    <span>AI_MUSEUM // built in the open // funded by donations</span>
+  </footer>
+
+  <script type="module" src="auth.js"></script>
+</body>
+</html>
